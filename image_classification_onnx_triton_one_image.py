@@ -7,7 +7,7 @@ from tritonclient.utils import *
 from PIL import Image
 
 def main():
-    sess = rt.InferenceSession("./model.onnx")
+    sess = rt.InferenceSession("./saved_model/model.onnx")
     data = keras.datasets.fashion_mnist
     class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                    'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']

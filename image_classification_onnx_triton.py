@@ -8,12 +8,12 @@ from tritonclient.utils import *
 
 
 def main():
-    sess = rt.InferenceSession("./model.onnx")
+    sess = rt.InferenceSession("./saved_model/model.onnx")
     data = keras.datasets.fashion_mnist
     class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                    'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
     (train_images, train_labels), (test_images, test_labels) = data.load_data()
-    get_all_images(test_images)
+    # get_all_images(test_images)
     train_images = train_images / 255.0
     test_images = test_images / 255.0
     target = np.array(test_images, dtype=np.float32)

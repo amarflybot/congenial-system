@@ -2,12 +2,23 @@
 
 The motivation to crete this repo is to get a minimal deeplearning model running on Triton with onnxruntime backend.
 
-## Install 
+## Install on local
 
 ```shell
-python3 -m venv .
-./venv/bin.activate
-pip install -r requirements.txt
+$ python3 -m venv .
+$ ./venv/bin.activate
+$ pip install -r requirements.txt
+```
+
+## on docker-compose
+
+```shell
+## Installation
+$ podman-compose run --rm build pip install -r requirements.txt
+
+
+## Run tests
+$ podman-compose run --rm build python -m unittest
 ```
 
 
@@ -20,7 +31,7 @@ File: [image_classification.py](image_classification.py)
 
 ### 2. Save the model as onnx
 ```shell
-python -m tf2onnx.convert --saved-model ./model --opset 15 --output model.onnx
+$ python -m tf2onnx.convert --saved-model ./model --opset 15 --output model.onnx
 ```
 
 ### 3. Load Onnx and use inference

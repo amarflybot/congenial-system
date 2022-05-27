@@ -5,7 +5,7 @@ import numpy as np
 
 
 def main():
-    sess = rt.InferenceSession("./model.onnx")
+    sess = rt.InferenceSession("./saved_model/model.onnx")
     data = keras.datasets.fashion_mnist
 
     class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',

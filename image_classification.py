@@ -27,12 +27,12 @@ def main():
 
 
 
-    for i in range(5):
-        plt.grid(False)
-        plt.imshow(test_images[i], cmap=plt.cm.binary)
-        plt.xlabel("Actual: " + class_names[test_labels[i]])
-        plt.ylabel("Prediction: " + class_names[np.argmax(prediction[i])])
-        plt.show()
+    # for i in range(5):
+    #     plt.grid(False)
+    #     plt.imshow(test_images[i], cmap=plt.cm.binary)
+    #     plt.xlabel("Actual: " + class_names[test_labels[i]])
+    #     plt.ylabel("Prediction: " + class_names[np.argmax(prediction[i])])
+    #     plt.show()
 
 
 if __name__ == '__main__':

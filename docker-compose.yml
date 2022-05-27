@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  build:
+    build: .
+    command: >
+      sh -c "pip install -r requirements.txt
+            uvicorn app.main:app --host 0.0.0.0 --reload --port 8080
+            "
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/code
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
