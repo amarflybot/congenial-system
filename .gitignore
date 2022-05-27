@@ -1,0 +1,5 @@
+venv
+images
+model
+model.onnx
+.idea

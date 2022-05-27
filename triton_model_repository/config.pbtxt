@@ -1,0 +1,20 @@
+name: "image_class_onnx"
+platform: "onnxruntime_onnx"
+max_batch_size : 0
+input [
+  {
+    name: "flatten_input"
+    data_type: TYPE_FP32
+    dims: [ -1 , 28,28 ]
+    reshape { shape: [ -1, 28,28 ] }
+  }
+]
+output [
+  {
+    name: "dense_1"
+    data_type: TYPE_FP32
+    dims: [ -1, 10 ]
+    reshape { shape: [ -1, 10 ] }
+    label_filename: "class_names.txt"
+  }
+]
