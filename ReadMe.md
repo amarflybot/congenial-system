@@ -13,13 +13,17 @@ $ pip install -r requirements.txt
 ## on docker-compose
 
 ```shell
-## Installation
-$ podman-compose run --rm build pip install -r requirements.txt
-
+## Installation/ Build
+$ podman-compose up --build
 
 ## Run tests
 $ podman-compose run --rm build python -m unittest
+
+## Start
+$ podman-compose up
 ```
+
+url: http://localhost:8080/docs
 
 
 ## Run in steps

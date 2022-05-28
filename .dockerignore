@@ -1,0 +1,6 @@
+venv
+images
+model
+.idea
+saved_model
+.pytest_cache
