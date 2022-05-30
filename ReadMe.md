@@ -1,3 +1,4 @@
+[![Docker Image CI](https://github.com/amarflybot/congenial-system/actions/workflows/docker-image.yml/badge.svg)](https://github.com/amarflybot/congenial-system/actions/workflows/docker-image.yml)
 # Deeplearning model to Triton
 
 The motivation to crete this repo is to get a minimal deeplearning model running on Triton with onnxruntime backend.
