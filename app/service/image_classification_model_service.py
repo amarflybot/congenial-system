@@ -1,5 +1,4 @@
-import os
-
+from fastapi import Request
 import numpy as np
 from PIL import Image
 from io import BytesIO
@@ -14,6 +13,7 @@ class ImageClassificationService:
         self.sess = rt.InferenceSession("/saved_model/model.onnx", providers=['CPUExecutionProvider'])
         self.class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                             'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+        print("ImageClassificationService init")
 
     def predict(self, data: str):
         im = Image.open(BytesIO(base64.b64decode(data)))
@@ -23,3 +23,9 @@ class ImageClassificationService:
         out = self.sess.run(["dense_1"], {"flatten_input": target.astype(np.float32)})
         prediction = out[0]
         return self.class_names[np.argmax(prediction)]
+
+
+# Helper to grab dependencies that live in the app.state
+def get_image_classification_service(request: Request) -> ImageClassificationService:
+    # See application for the key name in `app`.
+    return request.app.state.image_classification_service
