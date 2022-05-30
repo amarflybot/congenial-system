@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build and Install
+      run: docker-compose run --rm build pip install -r requirements.txt
+    
+    - name: Run Tests
+      run: docker-compose run --rm build python -m unittest
